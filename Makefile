@@ -14,5 +14,4 @@ clean:
 	rm -rf env artifacts *.log
 
 kill:
-	@tmux kill-session -t cvcluster$(VCLUSTER) || true
 	@tmux kill-session -t c$(CLUSTER) || true
