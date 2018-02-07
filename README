@@ -1,0 +1,12 @@
+This repository provides a utility that can be used to launch a tmux session against a Tetration cluster.
+
+*** Best results with Mac OSX + iTerm2 + Tmux 2.6
+
+INSTALLING:
+
+This step is not required - just run 'make connect' and it will install the virtualenv if it is missing.
+Run 'make install' to install all prerequisites for this.
+
+RUNNING:
+
+Run 'CLUSTER=daffy make connect' to fire off the tmux session in the current terminal.

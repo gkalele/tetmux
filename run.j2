@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export CLUSTER=c{{CLS}}
+
+tmux kill-session -t c{{CLS}} || true
+#source env/bin/activate # Activate the virtualenv with the tmuxp pip installation
+
+# Run the layout levelling after a few seconds
+bash -c "sleep 5; for i in  2 3 4 5 6 7 8 9; do tmux select-layout -t c{{CLS}}:$i even-vertical; done" &
+bash -c "sleep 15; for i in  2 3 4 5 6 7 8 9; do tmux select-layout -t c{{CLS}}:$i even-vertical; done" &
+
+tmuxp load {{CLS}}.yml
+echo "Tmux session ended"
+clear
+
