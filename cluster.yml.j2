@@ -9,22 +9,30 @@ windows:
   - window_name: orch
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall
        - ''
+    - shell_command:
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
+       - sudo su - tetinstall
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey orchestrator-2
+    - shell_command:
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
+       - sudo su - tetinstall
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey orchestrator-3
   - window_name: Mongos
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes mongodb-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey mongodb-1
        - mongo
        - use tetration_production
        - ''       
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes mongodb-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey mongodb-2
        - mongo
        - use tetration_production
        - ''       
@@ -32,41 +40,41 @@ windows:
   - window_name: Coordinator
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes enforcementcoordinator-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey enforcementcoordinator-1
        - cd /local/logs/tetration/enforcement_coordinator
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes enforcementcoordinator-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey enforcementcoordinator-2
        - cd /local/logs/tetration/enforcement_coordinator
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes enforcementcoordinator-3
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey enforcementcoordinator-3
        - cd /local/logs/tetration/enforcement_coordinator
 
   - window_name: Policystore
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes enforcementpolicystore-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey enforcementpolicystore-1
        - mongo
        - use enforcement
        - ''
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes enforcementpolicystore-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey enforcementpolicystore-2
        - mongo
        - use enforcement
        - ''
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes enforcementpolicystore-3
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey enforcementpolicystore-3
        - mongo
        - use enforcement
        - ''
@@ -74,104 +82,104 @@ windows:
   - window_name: collectors
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes collectordatamover-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey collectordatamover-1
        - iostat
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes collectordatamover-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey collectordatamover-2
        - iostat
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes collectordatamover-3
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey collectordatamover-3
        - iostat
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes collectordatamover-4
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey collectordatamover-4
        - iostat
 
   - window_name: zookeepers
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes zookeeper-1
-       - sleep 1
-       - /usr/lib/zookeeper/bin/zkCli.sh || /usr/lib/zookeeper/bin/zkCli.sh
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey zookeeper-1
+       - /usr/hdp/2.6.5.0-292/zookeeper/bin/zkCli.sh || /usr/hdp/2.6.5.0-292/zookeeper/bin/zkCli.sh
        - ''
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes zookeeper-2
-       - sleep 2
-       - /usr/lib/zookeeper/bin/zkCli.sh || /usr/lib/zookeeper/bin/zkCli.sh
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey zookeeper-2
+       - /usr/hdp/2.6.5.0-292/zookeeper/bin/zkCli.sh || /usr/hdp/2.6.5.0-292/zookeeper/bin/zkCli.sh
        - ''
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes zookeeper-3
-       - sleep 3
-       - /usr/lib/zookeeper/bin/zkCli.sh || /usr/lib/zookeeper/bin/zkCli.sh
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey zookeeper-3
+       - /usr/hdp/2.6.5.0-292/zookeeper/bin/zkCli.sh || /usr/hdp/2.6.5.0-292/zookeeper/bin/zkCli.sh
        - ''
 
   - window_name: appservers
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes appserver-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey appserver-1
        - cd /local/logs/tetration/tim
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes appserver-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey appserver-2
        - cd /local/logs/tetration/tim
 
   - window_name: launcherHost
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes launcherhost-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey launcherhost-1
        - ''
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes launcherhost-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey launcherhost-2
        - ''
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes launcherhost-3
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey launcherhost-3
        - ''
 
   - window_name: happobats
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes happobat-1
-       - ''
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey happobat-1
+       - cd /local/logs/tetration/adhocsched
+       - tail -F current
+
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes happobat-2
-       - ''
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey happobat-2
+       - cd /local/logs/tetration/adhocsched
+       - tail -F current
 
   - window_name: DruidCoord
     panes:
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes druidcoordinator-1
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey druidcoordinator-1
        - ''       
     - shell_command:
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o ControlMaster=no tetter@orch-{{CLS}}.tetrationanalytics.com
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey -o ControlMaster=yes tetter@orch-{{CLS}}.tetrationanalytics.com
        - sudo su - tetinstall    
-       - ssh -o StrictHostKeyChecking=no -o Compression=yes druidcoordinator-2
+       - ssh -o StrictHostKeyChecking=no -o Compression=yes -o PreferredAuthentications=publickey druidcoordinator-2
        - ''       
 
